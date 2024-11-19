@@ -20,9 +20,9 @@ class Library:
 
         Args:
         - book (Book): The book to be added.
-        """
+        """ 
+        self.books.append(book)
         
-
     def remove_book(self, book):
         """
         Removes a book from the library.
@@ -30,7 +30,8 @@ class Library:
         Args:
         - book (Book): The book to be removed.
         """
-        
+        if book in self.books: 
+          self.books.remove(book) 
 
     def add_member(self, member):
         """
@@ -39,7 +40,7 @@ class Library:
         Args:
         - member (Member): The member to be added.
         """
-        
+        self.memebers.append(member)   
 
     def remove_member(self, member):
         """
@@ -48,6 +49,8 @@ class Library:
         Args:
         - member (Member): The member to be removed.
         """
+        if member in self.members : 
+            self.members.remove(member)
         
 
     def borrow_book(self, book, member):
@@ -69,14 +72,17 @@ class Library:
         Args:
         - book (Book): The book to be returned.
         - member (Member): The member returning the book.
-        """
-        self.books.append(book)
-        member.return_book(book)
+        """ 
+        if book in member.borrowed_books:
+            member.return_book(book)
+            self.add_book(book)
+
 
     def list_available_books(self):
         """
         Lists all available books in the library.
         """
+        print ("Available Books:")
         for book in self.books:
             print(f"Title: {book.title}, Author: {book.author}")
 
@@ -85,5 +91,6 @@ class Library:
         Lists all borrowed books and their borrowers.
         """
         for member in self.members:
-            for book in member.borrowed_books:
+            if member.borrowed_books: 
+             for book in member.borrowed_books:
                 print(f"Title: {book.title}, Author: {book.author}, Borrower: {member.name}")
