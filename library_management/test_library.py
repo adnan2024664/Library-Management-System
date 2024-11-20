@@ -2,9 +2,9 @@
     Test Classes and Methods here
 '''
 
-from book import Book
-from library import Library
-from member import Member, TeacherMember, StudentMember
+from library_management.book import Book
+from library_management.library import Library
+from library_management.member import Member, TeacherMember, StudentMember
 
 def create_instance():
     # Create a new instance of the Book class
@@ -81,9 +81,3 @@ def test_library_operations():
   print("\nListing borrowed books:")
   library.list_borrowed_books()
 
-if __name__ == "__main__":
-    print("Testing Class Instances...")
-    create_instance()
-
-    print("\nTesting Library Operations...")
-    test_library_operations()
