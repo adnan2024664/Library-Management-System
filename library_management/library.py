@@ -75,7 +75,7 @@ class Library:
         """ 
         if book in member.borrowed_books:
             member.return_book(book)
-            self.add_book(book)
+            self.add_book
 
 
     def list_available_books(self):

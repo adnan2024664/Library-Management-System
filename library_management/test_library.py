@@ -2,9 +2,9 @@
     Test Classes and Methods here
 '''
 
-from library_management.book import Book
-from library_management.library import Library
-from library_management.member import Member, TeacherMember, StudentMember
+from book import Book
+from library import Library
+from member import Member, TeacherMember, StudentMember
 
 def create_instance():
     # Create a new instance of the Book class
