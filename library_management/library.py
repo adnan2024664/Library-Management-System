@@ -73,16 +73,16 @@ class Library:
         - book (Book): The book to be returned.
         - member (Member): The member returning the book.
         """ 
-        if book in member.borrowed_books:
-            member.return_book(book)
-            self.add_book
+        self.books.append(book)
+        member.return_book(book)
 
 
     def list_available_books(self):
         """
         Lists all available books in the library.
         """
-        print ("Available Books:")
+        if not self.books:
+            print("No available books.")
         for book in self.books:
             print(f"Title: {book.title}, Author: {book.author}")
 
@@ -91,6 +91,5 @@ class Library:
         Lists all borrowed books and their borrowers.
         """
         for member in self.members:
-            if member.borrowed_books: 
-             for book in member.borrowed_books:
+            for book in member.borrowed_books:
                 print(f"Title: {book.title}, Author: {book.author}, Borrower: {member.name}")

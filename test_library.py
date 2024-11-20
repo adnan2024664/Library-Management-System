@@ -76,3 +76,6 @@ def test_library_operations():
   print("\nListing borrowed books:")
   library.list_borrowed_books()
 
+# function to test them 
+create_instance()
+test_library_operations() 
