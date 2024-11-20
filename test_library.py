@@ -8,35 +8,30 @@ from library_management.member import Member, TeacherMember, StudentMember
 
 def create_instance():
     # Create a new instance of the Book class
-    try:
+    
         book = Book("Eloquent Python", "Abdulhameed")
         print(f"New instance of Book class created: {book.title} by {book.author}")
-    except NameError as e:
-        print(f"Error creating Book instance: {e}")
+        
 
     # Create a new instance of the Library class
-    try:
+    
         library = Library()
         print("New Library instance created")
-    except NameError as e:
-        print(e)
+    
 
     # Create a new instance of the Member class
-    try:
-       member = Member("Jack")
-       print(f"New Member instance created: {member.name}")
-    except NameError as e:
-        print(e)
+    
+        member = Member("Jack")
+        print(f"New Member instance created: {member.name}")
+    
 
     # Create a new instance of the TeacherMember class
-    try:
+   
         teacher = TeacherMember("Mr. Bob", "T001")
         print(f"New TeacherMember instance created: {teacher.name}, ID: {teacher.teacher_id}")
-    except NameError as e:
-        print(e)
-
-
-    return 
+        
+  
+    
 
 
 
