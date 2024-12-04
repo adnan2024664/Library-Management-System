@@ -6,13 +6,13 @@ def main():
     library = Library()
 
     # Sample Data
-    book1 = Book("Python 101", "John Doe")
-    book2 = Book("AI for Beginners", "Jane Smith")
+    book1 = Book("Charlie and Choclate Factory", "Roald Dahl")
+    book2 = Book("I am rebel ", "Ross Montgomery")
     library.add_book(book1)
     library.add_book(book2)
 
-    member1 = Member("Alice")
-    member2 = Member("Bob")
+    member1 = Member("Jackie")
+    member2 = Member("John")
     library.add_member(member1)
     library.add_member(member2)
 
