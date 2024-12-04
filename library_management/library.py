@@ -1,3 +1,6 @@
+from book import Book
+from member import Member
+
 class Library:
     """
     Represents a library.
@@ -20,9 +23,9 @@ class Library:
 
         Args:
         - book (Book): The book to be added.
-        """ 
+        """
         self.books.append(book)
-        
+
     def remove_book(self, book):
         """
         Removes a book from the library.
@@ -30,8 +33,8 @@ class Library:
         Args:
         - book (Book): The book to be removed.
         """
-        if book in self.books: 
-          self.books.remove(book) 
+        if book in self.books:
+            self.books.remove(book)
 
     def add_member(self, member):
         """
@@ -40,7 +43,7 @@ class Library:
         Args:
         - member (Member): The member to be added.
         """
-        self.members.append(member)   
+        self.members.append(member)
 
     def remove_member(self, member):
         """
@@ -49,9 +52,8 @@ class Library:
         Args:
         - member (Member): The member to be removed.
         """
-        if member in self.members : 
+        if member in self.members:
             self.members.remove(member)
-        
 
     def borrow_book(self, book, member):
         """
@@ -64,6 +66,9 @@ class Library:
         if book in self.books:
             self.books.remove(book)
             member.borrow_book(book)
+            print(f"{member.name} borrowed {book}.")
+        else:
+            print(f"The book {book} is not available.")
 
     def return_book(self, book, member):
         """
@@ -72,24 +77,24 @@ class Library:
         Args:
         - book (Book): The book to be returned.
         - member (Member): The member returning the book.
-        """ 
+        """
         self.books.append(book)
         member.return_book(book)
-
+        print(f"{member.name} returned {book}.")
 
     def list_available_books(self):
         """
         Lists all available books in the library.
         """
-        if not self.books:
-            print("No available books.")
+        print("\nAvailable Books:")
         for book in self.books:
-            print(f"Title: {book.title}, Author: {book.author}")
+            print(book)
 
     def list_borrowed_books(self):
         """
         Lists all borrowed books and their borrowers.
         """
+        print("\nBorrowed Books:")
         for member in self.members:
             for book in member.borrowed_books:
-                print(f"Title: {book.title}, Author: {book.author}, Borrower: {member.name}")
+                print(f"{book} - Borrowed by {member.name}")

@@ -37,44 +37,8 @@ class Member:
         """
         self.borrowed_books.remove(book)
 
-
-class StudentMember(Member):
-    """
-    A class to represent a student member, inheriting from Member.
-
-    Attributes:
-    student_id : str
-        The student ID of the member.
-    """
-
-    def __init__(self, name, student_id):
+    def __str__(self):
         """
-        Constructs all the necessary attributes for the student member object.
-
-        Parameters:
-        name (str): The name of the student member.
-        student_id (str): The student ID of the member.
+        String representation of the member.
         """
-        super().__init__(name)
-        self.student_id = student_id
-
-
-class TeacherMember(Member):
-    """
-    A class to represent a teacher member, inheriting from Member.
-
-    Attributes:
-    teacher_id : str
-        The teacher ID of the member.
-    """
-
-    def __init__(self, name, teacher_id):
-        """
-        Constructs all the necessary attributes for the teacher member object.
-
-        Parameters:
-        name (str): The name of the teacher member.
-        teacher_id (str): The teacher ID of the member.
-        """
-        super().__init__(name)
-        self.teacher_id = teacher_id
+        return f"Member Name: {self.name}"

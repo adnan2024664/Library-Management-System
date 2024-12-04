@@ -17,3 +17,9 @@ class Book:
         """
         self.title = title
         self.author = author
+
+    def __str__(self):
+        """
+        String representation of the book.
+        """
+        return f"'{self.title}' by {self.author}"
