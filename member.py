@@ -3,17 +3,16 @@ class Member:
     A class to represent a library member.
 
     Attributes:
-    name : str
-        The name of the member.
+    name : str  The name of the member.
     borrowed_books : list
         A list of books borrowed by the member.
     """
 
     def __init__(self, name):
         """
-        Constructs all the necessary attributes for the member object.
+        formats a member with name and empty borrowed book list 
 
-        Parameters:
+        args:
         name (str): The name of the member.
         """
         self.name = name
@@ -21,24 +20,28 @@ class Member:
 
     def borrow_book(self, book):
         """
-        Adds a book to the member's borrowed books list.
+        This adds a book to the member's borrowed books list.
 
-        Parameters:
+        args:
         book (Book): The book to be borrowed.
         """
         self.borrowed_books.append(book)
 
     def return_book(self, book):
         """
-        Removes a book from the member's borrowed books list.
+        This takes a book away from the member's borrowed books list.
 
-        Parameters:
+        args:
         book (Book): The book to be returned.
         """
-        self.borrowed_books.remove(book)
+        if book in self.borrowed_books:
+           self.borrowed_books.remove(book)
+           print(f"Book '{book.title}' returned successfully.")
+        else:
+           print(f"Error: The book '{book.title}' is not in the borrowed list.")
 
     def __str__(self):
         """
-        String representation of the member.
+        symbolises string of the member.
         """
         return f"Member Name: {self.name}"

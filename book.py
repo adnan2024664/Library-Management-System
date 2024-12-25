@@ -1,6 +1,6 @@
 class Book:
     """
-    A class to represent a book.
+    A class wcich represents a book within the libary.
 
     Attributes:
     title (str): The title of the book.
@@ -9,9 +9,9 @@ class Book:
 
     def __init__(self, title, author):
         """
-        Constructs all the necessary attributes for the book object.
+       gives the book object a title and an author 
 
-        Parameters:
+        args:
         title (str): The title of the book.
         author (str): The author of the book.
         """

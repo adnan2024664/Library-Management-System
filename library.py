@@ -3,26 +3,26 @@ from member import Member
 
 class Library:
     """
-    Represents a library.
+    A class which represents the library.
 
     Attributes:
-    - books (list): A list of books in the library.
-    - members (list): A list of members in the library.
+    - books (list): A list of books within the library.
+    - members (list): A list of members within the library.
     """
 
     def __init__(self):
         """
-        Initializes an empty library.
+        respresnts a library method with empty book and member list.
         """
         self.books = []
         self.members = []
 
     def add_book(self, book):
         """
-        Adds a book to the library.
+        includes a book to the library.
 
         Args:
-        - book (Book): The book to be added.
+        - book (Book): The book that will be added.
         """
         self.books.append(book)
 
@@ -31,37 +31,37 @@ class Library:
         Removes a book from the library.
 
         Args:
-        - book (Book): The book to be removed.
+        - book (Book): The book that will be removed.
         """
         if book in self.books:
             self.books.remove(book)
 
     def add_member(self, member):
         """
-        Adds a member to the library.
+        includes a member to the library.
 
         Args:
-        - member (Member): The member to be added.
+        - member (Member): The member that will be added.
         """
         self.members.append(member)
 
     def remove_member(self, member):
         """
-        Removes a member from the library.
+        Removes a member from the library 
 
         Args:
-        - member (Member): The member to be removed.
+        - member (Member): The member that will be removed.
         """
         if member in self.members:
             self.members.remove(member)
 
     def borrow_book(self, book, member):
         """
-        Allows a member to borrow a book from the library.
+        permits  a memeber to borrow a book from the library.
 
         Args:
-        - book (Book): The book to be borrowed.
-        - member (Member): The member borrowing the book.
+        - book (Book): The book to borrow form the library.
+        - member (Member): The member who is borrowing the book.
         """
         if book in self.books:
             self.books.remove(book)
@@ -72,19 +72,21 @@ class Library:
 
     def return_book(self, book, member):
         """
-        Allows a member to return a book to the library.
+        permits the return of a book to the library by a member.
 
         Args:
-        - book (Book): The book to be returned.
-        - member (Member): The member returning the book.
+        - book (Book): The book to be returned to the library.
+        - member (Member): The member that is returning the book.
         """
-        self.books.append(book)
-        member.return_book(book)
-        print(f"{member.name} returned {book}.")
+        if book in member.borrowed_books:  
+          member.return_book(book)       
+          self.books.append(book)        
+        else:
+          print(f"Error: Member '{member.name}' has not borrowed the book '{book.title}'.")
 
     def list_available_books(self):
         """
-        Lists all available books in the library.
+       lists every book that is available in the library.
         """
         print("\nAvailable Books:")
         for book in self.books:
@@ -92,7 +94,7 @@ class Library:
 
     def list_borrowed_books(self):
         """
-        Lists all borrowed books and their borrowers.
+        Lists all the books that have been borrowed and who has borrowed. 
         """
         print("\nBorrowed Books:")
         for member in self.members:
