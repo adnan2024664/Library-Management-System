@@ -50,7 +50,7 @@ def test_borrow_book():
    
     print("---------Testing borrowing a book from the Library-----------")
     library = Library()
-    book = Book("1I am Rebel", "Ross Montgomery")
+    book = Book("I am Rebel", "Ross Montgomery")
     member = Member("John")
     library.add_book(book)
     library.add_member(member)
